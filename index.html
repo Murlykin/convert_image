@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Convert image</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div id="cbwrap">
+      <h1 id="cbtitle">Convert Image Format</h1>
+      <div class="wrapper">
+        <div class="editor">
+          <div class="filter">
+            <label for="blur">Розмиття</label>
+            <input
+              type="range"
+              min="0"
+              max="5"
+              value="0"
+              step="0.1"
+              id="blur"
+            />
+          </div>
+          <div class="filter">
+            <label for="contrast">Контраст</label>
+            <input type="range" min="0" max="200" value="100" id="contrast" />
+          </div>
+          <div class="filter">
+            <label for="hue-rotate">Відтінок обертання</label>
+            <input type="range" min="0" max="360" value="0" id="hue-rotate" />
+          </div>
+          <div class="filter">
+            <label for="sepia">Тонування</label>
+            <input type="range" min="0" max="100" value="0" id="sepia" />
+          </div>
+          <div class="flip-buttons">
+            <div class="flip-options">
+              <input type="radio" name="flip" id="no-flip" checked />
+              <label for="no-flip">Без повороту</label>
+            </div>
+            <div class="flip-options">
+              <input type="radio" name="flip" id="flip-x" />
+              <label for="flip-x">Повернути по горизонталі</label>
+            </div>
+            <div class="flip-options">
+              <input type="radio" name="flip" id="flip-y" />
+              <label for="flip-y">Повернути по вертикалі</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="result">
+          <figure class="image-container">
+            <img class="img-result" id="chosen-image" />
+          </figure>
+        </div>
+
+        <form id="cForm" onsubmit="return convert.read()">
+          <label>SELECT FORMAT</label>
+          <select id="cFormat">
+            <option value="jpeg">JPG</option>
+            <option value="png">PNG</option>
+            <option value="gif">GIF</option>
+            <option value="webp">WEBP</option>
+          </select>
+
+          <label>CHOOSE FILE</label>
+          <input type="file" id="upload-button" accept="image/*" required />
+
+          <input type="submit" value="Go" />
+        </form>
+      </div>
+    </div>
+
+    <script src="./convert.js"></script>
+  </body>
+</html>
